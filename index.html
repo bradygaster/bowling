@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f0e6">
+  <meta name="description" content="A pocket-sized, paper-and-ink bowling arcade. Ten frames. No quarters required.">
+  <title>Spare Time — The Bowling Club</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="bowling.js"></script>
+  <script defer src="game.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <a class="brand" href="./index.html" aria-label="Spare Time home">
+        <svg viewBox="0 0 50 50" aria-hidden="true"><circle cx="25" cy="25" r="22" fill="currentColor"/><circle cx="23" cy="15" r="4" fill="#f5f0e6"/><circle cx="34" cy="20" r="4" fill="#f5f0e6"/><circle cx="20" cy="27" r="4" fill="#f5f0e6"/></svg>
+        THE BOWLING CLUB
+      </a>
+      <span class="edition">EST. RIGHT NOW <span>•</span> OPEN ALL NIGHT</span>
+      <button class="text-button" id="restart" type="button">NEW GAME ↗</button>
+    </header>
+
+    <section class="intro" aria-labelledby="title">
+      <div>
+        <p class="eyebrow"><span class="live-dot"></span> SMALL GAME. BIG PIN ENERGY.</p>
+        <h1 id="title">SPARE<span class="title-star" aria-hidden="true">✳</span><br><span class="outline">TIME.</span></h1>
+      </div>
+      <div class="intro-side">
+        <div class="sticker"><span>100% GOOD TIMES</span><strong>NO QUARTERS<br>REQUIRED.</strong><span>10 FRAMES · ONE YOU</span></div>
+        <p>A little aim. A little attitude.<br>A whole lot of knocking things over.</p>
+      </div>
+    </section>
+
+    <main>
+      <div class="game-grid">
+        <section class="lane-card" aria-labelledby="lane-title">
+          <div class="card-bar"><h2 id="lane-title">LANE 01 <span>/ YOURS FOR THE NIGHT</span></h2><span class="open-tag">LET’S ROLL</span></div>
+          <div class="lane-stage">
+            <div class="lane-hud"><div><span>FRAME</span><strong id="frame-number">01 <small>/ 10</small></strong></div><div><span>BALL</span><strong id="ball-number">01</strong></div></div>
+            <canvas id="lane" tabindex="0" role="img" aria-label="Bowling lane: ten standing pins. Press Enter or Space to set power and release." aria-describedby="lane-help"></canvas>
+            <div class="lane-caption"><span id="pins-left">10 PINS STANDING</span><span>KEEP IT OUT OF THE GUTTER ↗</span></div>
+          </div>
+          <div class="result-strip" id="result-strip"><span class="result-icon" aria-hidden="true">✦</span><div><h3 id="result-title">THE LANE IS YOURS.</h3><p id="result-detail">Find your line. Set your power. Make some noise.</p></div></div>
+        </section>
+
+        <aside class="console" aria-labelledby="controls-title">
+          <div class="score-box"><div><span>YOUR SCORE</span><strong id="total-score">000</strong></div><div class="best"><span>PERSONAL BEST</span><strong id="best-score">—</strong><span class="best-star" aria-hidden="true">✳</span></div></div>
+          <section class="controls-card">
+            <div class="card-bar"><h2 id="controls-title">THE CONTROL ROOM</h2><span aria-hidden="true">↙</span></div>
+            <div class="control-body">
+              <div class="control-label"><label for="aim"><span class="step">01</span> PICK YOUR LINE</label><output id="aim-value" for="aim">RIGHT 10</output></div>
+              <input id="aim" type="range" min="-100" max="100" value="10" aria-label="Aim left or right">
+              <div class="range-ends"><span>← LEFT</span><span>RIGHT →</span></div>
+              <div class="control-label"><label for="hook"><span class="step">02</span> ADD SOME CURVE</label><output id="hook-value" for="hook">RIGHT 15</output></div>
+              <input id="hook" type="range" min="-100" max="100" value="15" aria-label="Ball hook left or right">
+              <div class="range-ends"><span>← LEFT HOOK</span><span>RIGHT HOOK →</span></div>
+              <div class="control-label"><span><span class="step">03</span> FEEL THE POWER</span><output id="power-value">80%</output></div>
+              <div class="power-meter" role="meter" aria-label="Ball power" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80"><div class="power-sweet"></div><div id="power-fill"></div><span id="power-marker"></span></div>
+              <div class="range-ends"><span>EASY DOES IT</span><span>FULL SEND ↗</span></div>
+              <button id="roll" class="roll-button" type="button">SET POWER <span aria-hidden="true">↗</span></button>
+              <p class="button-help" id="button-help">Tap once to charge. Tap again to bowl.</p>
+            </div>
+          </section>
+          <div class="tip"><span aria-hidden="true">☞</span><p><strong>THE POCKET IS THE TICKET.</strong><br>Aim just off-center with a little hook. Release in the yellow zone for a punchy roll.</p></div>
+          <details class="rules"><summary>NEW HERE? THE HOUSE RULES <span>+</span></summary><p id="lane-help">Use the sliders to aim and curve your shot. Select Set Power, then Release Ball to stop the meter. Keyboard: Tab to a slider and use arrow keys; Enter or Space activates the focused button or lane.</p><p>You get two balls per frame. A strike (X) adds the next two balls; a spare (/) adds the next one. A strike or spare in frame 10 earns bonus balls. Maximum score: 300.</p><p>The dotted line previews your ball’s path. Pins stay down until your next rack. Your best completed score is saved only in this browser.</p></details>
+        </aside>
+      </div>
+
+      <section class="scorecard" aria-labelledby="scorecard-title">
+        <div class="scorecard-heading"><h2 id="scorecard-title">THE PAPER TRAIL <span>/ SCORECARD</span></h2><span id="score-status">TEN FRAMES TO MAKE YOUR MARK.</span></div>
+        <div class="score-table-wrap"><table aria-label="Ten-frame bowling scorecard"><thead><tr id="frame-headings"></tr></thead><tbody><tr id="frame-rolls"></tr><tr id="frame-scores"></tr></tbody></table></div>
+        <div class="score-legend"><span><b>X</b> STRIKE</span><span><b>/</b> SPARE</span><span><b>–</b> GUTTER / MISS</span><span>GOOD THINGS TAKE TEN FRAMES.</span></div>
+      </section>
+      <p id="announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+      <p id="storage-warning" class="storage-warning" role="status" hidden></p>
+    </main>
+    <footer><span>SPARE TIME® <span class="footer-light">/ AN UNREASONABLY GOOD TIME.</span></span><span>BUILT FOR THE LOVE OF THE GAME <span aria-hidden="true">✳</span></span></footer>
+  </div>
+</body>
+</html>
