@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f5f0e6">
   <meta name="description" content="A pocket-sized, paper-and-ink bowling arcade. Ten frames. No quarters required.">
   <title>Spare Time — The Bowling Club</title>
@@ -16,7 +16,7 @@
     <header class="masthead">
       <a class="brand" href="./index.html" aria-label="Spare Time home">
         <svg viewBox="0 0 50 50" aria-hidden="true"><circle cx="25" cy="25" r="22" fill="currentColor"/><circle cx="23" cy="15" r="4" fill="#f5f0e6"/><circle cx="34" cy="20" r="4" fill="#f5f0e6"/><circle cx="20" cy="27" r="4" fill="#f5f0e6"/></svg>
-        THE BOWLING CLUB
+        <span class="brand-title">THE BOWLING CLUB</span><span class="brand-mobile">SPARE TIME.</span>
       </a>
       <span class="edition">EST. RIGHT NOW <span>•</span> OPEN ALL NIGHT</span>
       <button class="text-button" id="restart" type="button">NEW GAME ↗</button>
@@ -50,13 +50,13 @@
           <section class="controls-card">
             <div class="card-bar"><h2 id="controls-title">THE CONTROL ROOM</h2><span aria-hidden="true">↙</span></div>
             <div class="control-body">
-              <div class="control-label"><label for="aim"><span class="step">01</span> PICK YOUR LINE</label><output id="aim-value" for="aim">RIGHT 10</output></div>
+              <div class="control-label aim-label"><label for="aim"><span class="step">01</span><span class="label-long">PICK YOUR LINE</span><span class="label-short">AIM</span></label><output id="aim-value" for="aim">RIGHT 10</output></div>
               <input id="aim" type="range" min="-100" max="100" value="10" aria-label="Aim left or right">
               <div class="range-ends"><span>← LEFT</span><span>RIGHT →</span></div>
-              <div class="control-label"><label for="hook"><span class="step">02</span> ADD SOME CURVE</label><output id="hook-value" for="hook">RIGHT 15</output></div>
+              <div class="control-label hook-label"><label for="hook"><span class="step">02</span><span class="label-long">ADD SOME CURVE</span><span class="label-short">CURVE</span></label><output id="hook-value" for="hook">RIGHT 15</output></div>
               <input id="hook" type="range" min="-100" max="100" value="15" aria-label="Ball hook left or right">
               <div class="range-ends"><span>← LEFT HOOK</span><span>RIGHT HOOK →</span></div>
-              <div class="control-label"><span><span class="step">03</span> FEEL THE POWER</span><output id="power-value">80%</output></div>
+              <div class="control-label power-label"><span><span class="step">03</span><span class="label-long">FEEL THE POWER</span><span class="label-short">POWER</span></span><output id="power-value">80%</output></div>
               <div class="power-meter" role="meter" aria-label="Ball power" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80"><div class="power-sweet"></div><div id="power-fill"></div><span id="power-marker"></span></div>
               <div class="range-ends"><span>EASY DOES IT</span><span>FULL SEND ↗</span></div>
               <button id="roll" class="roll-button" type="button">SET POWER <span aria-hidden="true">↗</span></button>
@@ -64,7 +64,7 @@
             </div>
           </section>
           <div class="tip"><span aria-hidden="true">☞</span><p><strong>THE POCKET IS THE TICKET.</strong><br>Aim just off-center with a little hook. Release in the yellow zone for a punchy roll.</p></div>
-          <details class="rules"><summary>NEW HERE? THE HOUSE RULES <span>+</span></summary><p id="lane-help">Use the sliders to aim and curve your shot. Select Set Power, then Release Ball to stop the meter. Keyboard: Tab to a slider and use arrow keys; Enter or Space activates the focused button or lane.</p><p>You get two balls per frame. A strike (X) adds the next two balls; a spare (/) adds the next one. A strike or spare in frame 10 earns bonus balls. Maximum score: 300.</p><p>The dotted line previews your ball’s path. Pins stay down until your next rack. Your best completed score is saved only in this browser.</p></details>
+          <details class="rules"><summary><span class="rules-label">NEW HERE? THE HOUSE RULES</span><span class="rules-toggle" aria-hidden="true">?</span></summary><p id="lane-help">Use the sliders to aim and curve your shot. Select Set Power, then Release Ball to stop the meter. Keyboard: Tab to a slider and use arrow keys; Enter or Space activates the focused button or lane.</p><p>You get two balls per frame. A strike (X) adds the next two balls; a spare (/) adds the next one. A strike or spare in frame 10 earns bonus balls. Maximum score: 300.</p><p>The dotted line previews your ball’s path. Pins stay down until your next rack. Your best completed score is saved only in this browser.</p></details>
         </aside>
       </div>
 

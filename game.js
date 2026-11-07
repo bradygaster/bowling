@@ -185,7 +185,7 @@
     ctx.fillStyle = "#20201e";
     ctx.font = `900 ${Math.max(10, width * 0.018)}px "Courier New", monospace`;
     ctx.textAlign = "center";
-    ctx.fillText("SPARE TIME / 01", width / 2, height * 0.14);
+    if (height >= 220) ctx.fillText("SPARE TIME / 01", width / 2, height * 0.14);
     ctx.restore();
     if (state !== "rolling" && !game.complete) {
       const shot = shotSettings();
